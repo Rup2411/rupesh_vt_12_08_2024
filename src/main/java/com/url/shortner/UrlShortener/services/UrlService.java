@@ -6,6 +6,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -102,6 +103,7 @@ public class UrlService {
 		}
 	}
 	
+	@Scheduled(cron = "0 0 0 * * ?")
 	public void deleteExpiredUrls() {
 		List<UrlEntity> expiredUrls;
 		do {
